@@ -50,6 +50,7 @@
   width: 385px;
   font-family: Montserrat, serif;
   font-size: 14px;
+  max-height: 105;
 }
 
 *:focus {
