@@ -1,2 +1,2 @@
-
+.container{display:flex;justify-content:center}.container input{font-family:Montserrat,serif;font-size:16px;font-stretch:100%;text-shadow:none}.container input#phone{font-weight:400;width:385px;height:50px;padding-left:66px;padding-right:20px;border:1px solid #5696dd;border-radius:9px}.container input#phone:active,.container input#phone:hover{border:1px solid #5696dd}.container input.btn{font-weight:600;color:#fff;background-color:#5696dd;border-width:unset;border-style:unset;border-radius:9px;height:50px;width:300px;margin-top:20px;margin-left:auto;margin-right:auto;text-transform:uppercase;letter-spacing:.5px}.container #login{display:flex;flex-direction:column}.container .iti__selected-flag{padding-left:20px}
 /*# sourceMappingURL=style.sass.min.css.map */

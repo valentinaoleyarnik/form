@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat">
     <link rel="stylesheet" href="css/intlTelInput.min.css">
     <link rel="stylesheet" href="css/style.sass.min.css">
     <!-- Google Tag Manager -->
@@ -37,7 +38,7 @@
         .then((resp) => resp.json())
         .catch(() => {
             return {
-                country: 'us',
+                country: 'uk',
             };
         })
         .then((resp) => callback(resp.country));
