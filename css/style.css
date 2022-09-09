@@ -17,9 +17,6 @@
   border: 1px solid #5696dd;
   border-radius: 9px;
 }
-.container input#phone:active, .container input#phone:hover {
-  border: 1px solid #5696dd;
-}
 .container input.btn {
   font-weight: 600;
   color: #fff;
@@ -35,6 +32,9 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+.container input.btn:hover {
+  background-color: #4581c3;
+}
 .container #login {
   display: flex;
   flex-direction: column;
@@ -46,8 +46,21 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
+.iti__country-list {
+  width: 385px;
+  font-family: Montserrat, serif;
+  font-size: 14px;
+}
+
+*:focus {
+  outline: none;
+}
+
 @media screen and (max-width: 420px) {
   .container input#phone, .container input.btn {
+    width: 300px;
+  }
+  .iti__country-list {
     width: 300px;
   }
 }

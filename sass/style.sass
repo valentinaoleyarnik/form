@@ -14,8 +14,6 @@
       padding-right: 20px
       border: 1px solid #5696dd
       border-radius: 9px
-      &:active,&:hover
-        border: 1px solid #5696dd
     &.btn
       font-weight: 600
       color: #fff
@@ -30,6 +28,8 @@
       margin-right: auto
       text-transform: uppercase
       letter-spacing: 0.5px
+      &:hover
+        background-color: #4581c3
   & #login
     display: flex
     flex-direction: column
@@ -37,8 +37,17 @@
     padding-left: 20px
   & .iti__flag
     box-shadow: 0 0 5px rgb(0 0 0 / 30%)
+.iti__country-list
+  width: 385px
+  font-family: Montserrat, serif
+  font-size: 14px
+
+*:focus
+  outline: none
 
 @media screen and (max-width: 420px)
   .container input
     &#phone,&.btn
       width: 300px
+  .iti__country-list
+    width: 300px
