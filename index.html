@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="css/intlTelInput.min.css">
     <link rel="stylesheet" href="css/style.sass.min.css">
     <!-- Google Tag Manager -->
-    <!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9DSPDB');</script>-->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9DSPDB');</script>
     <!-- End Google Tag Manager -->
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<!--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9DSPDB"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9DSPDB"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <div class="container">
@@ -42,6 +42,32 @@
             };
         })
         .then((resp) => callback(resp.country));
+    }
+    function process(event) {
+        event.preventDefault();
+        const phoneNumber = phoneInput.getNumber();
+    }
+</script>
+<script src="https://customer.smartsender.eu/js/client/dl.js"></script>
+<script>
+    const links = document.querySelectorAll('a');
+    
+    if( links ) {
+        for( const link of links ) {
+            if (
+                link.href.includes("tg://resolve") || 
+                link.href.includes("https://t.me/") ||
+                link.href.includes("https://direct.smartsender.com/redirect") || 
+                link.href.includes("viber://pa") ||
+                link.href.includes("https://vk.com/app") || 
+                link.href.includes("vk://vk.com/app") ||
+                link.href.includes("https://m.me") ||
+                link.href.includes("https://wa.me") || 
+                link.href.includes("whatsapp://send")
+            ) {
+                link.classList.add('ss-btn');
+            }
+        }
     }
 </script>
 </body>
