@@ -24,15 +24,17 @@
         <input type="submit" class="btn" value="Telegram" />
       </a>
     </form>
+    <div class="alert alert-info" style="display: none;"></div>
 </div>
 
 <script src="js/intlTelInput.min.js"></script>
 <script>
     const phoneInputField = document.querySelector("#phone");
-    const phoneInput = window.intlTelInput(phoneInputField, {
+    var phoneInput = window.intlTelInput(phoneInputField, {
         initialCountry: "auto",
         geoIpLookup: getIp,
         preferredCountries: ["pl", "de", "cz"],
+        separateDialCode:true,
         utilsScript:
             "js/utils.js",
     });
@@ -48,10 +50,11 @@
     }
     function process(event) {
         event.preventDefault();
-        const phoneNumber = phoneInput.getNumber();
+        var phoneNumber = phoneInput.getNumber();
+        console.log(phoneInput);
     }
 </script>
-<script src="https://customer.smartsender.eu/js/client/dl.js"></script>
+<!--<script src="https://customer.smartsender.eu/js/client/dl.js"></script>-->
 <script>
     const links = document.querySelectorAll('a');
     

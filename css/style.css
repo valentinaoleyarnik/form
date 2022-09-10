@@ -1,3 +1,7 @@
+.iti__selected-dial-code, input, .iti__country-list {
+  font-family: Montserrat, Arial, sans-serif;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -8,8 +12,13 @@
   margin-left: auto;
   margin-right: auto;
 }
+.container .iti__selected-dial-code {
+  font-size: 16px;
+  font-stretch: 100%;
+  text-shadow: none;
+  font-weight: 400;
+}
 .container input {
-  font-family: Montserrat, serif;
   font-size: 16px;
   font-stretch: 100%;
   text-shadow: none;
@@ -51,9 +60,22 @@
 
 .iti__country-list {
   width: 385px;
-  font-family: Montserrat, serif;
   font-size: 14px;
   max-height: 105px;
+  overflow-x: hidden;
+  border-radius: 7px;
+  margin-top: 5px;
+}
+.iti__country-list::-webkit-scrollbar {
+  width: 8px;
+}
+.iti__country-list::-webkit-scrollbar-thumb {
+  background: #c2c9d2;
+  border-radius: 5px;
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+  background-color: unset;
 }
 
 *:focus {
