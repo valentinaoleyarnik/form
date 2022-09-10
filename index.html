@@ -91,8 +91,6 @@
     function process(event) {
         event.preventDefault();
 
-        error.style.display = "none";
-
         if (phoneInput.isValidNumber()) {
             ssContext.variables.phone = phoneInput.getNumber();
             document.getElementsByClassName('ss-btn')[0].click();
