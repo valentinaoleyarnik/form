@@ -19,7 +19,7 @@
   font-stretch: 100%;
   text-shadow: none;
 }
-.container input#phone {
+.container input.phone {
   font-weight: 400;
   width: 385px;
   height: 50px;
@@ -91,7 +91,7 @@
 }
 
 @media screen and (max-width: 420px) {
-  .container input#phone, .container input.btn {
+  .container input.phone, .container input.btn {
     width: 300px;
   }
   .iti__country-list {

