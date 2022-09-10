@@ -61,10 +61,10 @@
 .iti__country-list {
   width: 385px;
   font-size: 14px;
-  max-height: 105px;
+  max-height: 125px !important;
   overflow-x: hidden;
   border-radius: 7px;
-  margin-top: 5px;
+  margin-top: 5px !important;
 }
 .iti__country-list::-webkit-scrollbar {
   width: 8px;
@@ -75,7 +75,7 @@
 }
 
 .iti--separate-dial-code .iti__selected-flag {
-  background-color: unset;
+  background-color: unset !important;
 }
 
 .alert-error {
