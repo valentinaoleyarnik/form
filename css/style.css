@@ -66,6 +66,9 @@
   border-radius: 7px;
   margin-top: 5px !important;
 }
+.iti__country-list .iti_country {
+  line-height: 1;
+}
 .iti__country-list::-webkit-scrollbar {
   width: 8px;
 }
