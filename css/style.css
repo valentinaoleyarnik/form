@@ -1,4 +1,4 @@
-.iti__selected-dial-code, input, .iti__country-list, .alert-error {
+.iti__selected-dial-code, input, .iti__country-list, .alert {
   font-family: Montserrat, Arial, sans-serif;
 }
 
@@ -46,7 +46,7 @@
 .container input.btn:hover {
   background-color: #4581c3;
 }
-.container #login {
+.container .login {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,7 +67,7 @@
   margin-top: 5px !important;
 }
 .iti__country-list .iti_country {
-  line-height: 1;
+  line-height: 1.4 !important;
 }
 .iti__country-list::-webkit-scrollbar {
   width: 8px;
@@ -81,7 +81,7 @@
   background-color: unset !important;
 }
 
-.alert-error {
+.alert {
   margin-top: 15px;
   color: red;
 }

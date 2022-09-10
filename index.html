@@ -18,20 +18,21 @@
 <!-- End Google Tag Manager (noscript) -->
 
 <div class="container">
-    <form id="login" onsubmit="process(event)">
+    <form class="login" onsubmit="process(event)">
       <input id="phone" class="phone" type="tel" name="phone" />
       <input type="submit" class="btn" value="Telegram" />
     </form>
-    <a href="https://t.me/ValentinaOleyarnik_bot?start=ZGw6MTA2NDY0" style="display: none"></a>
     <div class="alert alert-error" style="display: none"></div>
 </div>
+
+<div><a href="https://t.me/ValentinaOleyarnik_bot?start=ZGw6MTA2NDY0" style="display: none"></a></div>
+
 <div class="container">
-    <form id="login" onsubmit="process(event)">
+    <form class="login" onsubmit="processPopup(event)">
       <input id="phonePopup" class="phone" type="tel" name="phone" />
       <input type="submit" class="btn" value="Telegram" />
     </form>
-    <a href="https://t.me/ValentinaOleyarnik_bot?start=ZGw6MTA2NDY0" style="display: none"></a>
-    <div class="alert alert-error" style="display: none"></div>
+    <div class="alert alert-error-popup" style="display: none"></div>
 </div>
 
 <script src="js/intlTelInput.min.js"></script>
@@ -97,6 +98,20 @@
         } else {
             error.style.display = "";
             error.innerHTML = `Некорректный номер телефона.`;
+        }
+    }
+
+    const errorPopup = document.querySelector(".alert-error-popup");
+
+    function processPopup(event) {
+        event.preventDefault();
+
+        if (phoneInput.isValidNumber()) {
+            ssContext.variables.phone = phoneInput.getNumber();
+            document.getElementsByClassName('ss-btn')[0].click();
+        } else {
+            errorPopup.style.display = "";
+            errorPopup.innerHTML = `Некорректный номер телефона.`;
         }
     }
 
