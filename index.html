@@ -20,57 +20,14 @@
 <div class="container">
     <form id="login" onsubmit="process(event)">
       <input id="phone" type="tel" name="phone" />
-      <a href="https://t.me/ValentinaOleyarnik_bot?start=ZGw6MTA2NDY0">
-        <input type="submit" class="btn" value="Telegram" />
-      </a>
+      <input type="submit" class="btn" value="Telegram" />
     </form>
-    <div class="alert alert-info" style="display: none"></div>
+    <a href="https://t.me/ValentinaOleyarnik_bot?start=ZGw6MTA2NDY0" style="display: none"></a>
     <div class="alert alert-error" style="display: none"></div>
 </div>
 
 <script src="js/intlTelInput.min.js"></script>
-<script>
-    const phoneInputField = document.querySelector("#phone");
-    const phoneInput = window.intlTelInput(phoneInputField, {
-        initialCountry: "auto",
-        geoIpLookup: getIp,
-        preferredCountries: ["pl", "de", "cz"],
-        separateDialCode:true,
-        utilsScript:
-            "js/utils.js",
-    });
-    function getIp(callback) {
-        fetch('https://ipinfo.io/json?token=9f3ab6928569d1', { headers: { 'Accept': 'application/json' }})
-        .then((resp) => resp.json())
-        .catch(() => {
-            return {
-                country: 'uk',
-            };
-        })
-        .then((resp) => callback(resp.country));
-    }
-
-    const info = document.querySelector(".alert-info");
-    const error = document.querySelector(".alert-error");
-
-    function process(event) {
-        event.preventDefault();
-
-        const phoneNumber = phoneInput.getNumber();
-
-        info.style.display = "none";
-        error.style.display = "none";
-
-        if (phoneInput.isValidNumber()) {
-            info.style.display = "";
-            info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
-        } else {
-            error.style.display = "";
-            error.innerHTML = `Некорректный номер телефона.`;
-        }
-    }
-</script>
-<!--<script src="https://customer.smartsender.eu/js/client/dl.js"></script>-->
+<script src="https://customer.smartsender.eu/js/client/dl.js"></script>
 <script>
     const links = document.querySelectorAll('a');
     
@@ -93,12 +50,45 @@
     }
 </script>
 <script>
-    /**
-     * Returns string with URL param value.
-     *
-     * @param {String} param [The Param in URL].
-     * @return {String} paramValue [Value that we search in param].
-     */
+    var phoneNumber
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        initialCountry: "auto",
+        geoIpLookup: getIp,
+        preferredCountries: ["pl", "de", "cz"],
+        separateDialCode:true,
+        utilsScript:
+            "js/utils.js",
+    });
+    function getIp(callback) {
+        fetch('https://ipinfo.io/json?token=9f3ab6928569d1', { headers: { 'Accept': 'application/json' }})
+        .then((resp) => resp.json())
+        .catch(() => {
+            return {
+                country: 'uk',
+            };
+        })
+        .then((resp) => callback(resp.country));
+    }
+
+    const error = document.querySelector(".alert-error");
+
+    function process(event) {
+        event.preventDefault();
+
+        phoneNumber = phoneInput.getNumber();
+
+        error.style.display = "none";
+
+        if (phoneInput.isValidNumber()) {
+            document.getElementsByClassName('ss-btn')[0].click();
+        } else {
+            error.style.display = "";
+            error.innerHTML = `Некорректный номер телефона.`;
+        }
+    }
+
+    // Smart Sender
     const getUrlParam = function( param ) {
       if ( ! param ) return;
 
@@ -109,16 +99,15 @@
       // console.log(paramValue);
       return paramValue;
     };
-
     
     // ssDeepLink params
-    const ssContext = {
+    var ssContext = {
         variables: {
             utm_source: getUrlParam('utm_source'), // получит параметр "utm_source" из ссылки
             utm_medium: getUrlParam('utm_medium'), // получит параметр "utm_medium" из ссылки
             utm_campaign: getUrlParam('utm_campaign'), // получит параметр "utm_campaign" из ссылки
             utm_content: getUrlParam('utm_content'), // получит параметр "utm_content" из ссылки
-            W_chanel: getUrlParam('W_chanel'), // получит параметр "W_chanel" из ссылки
+            phone: phoneNumber // получить телефон из формы
         }
     };
     //console.log(ssContext);
