@@ -1,9 +1,11 @@
 // Font family
-.iti__selected-dial-code, input, .iti__country-list
+.iti__selected-dial-code, input, .iti__country-list, .alert-error
   font-family: Montserrat, Arial, sans-serif
 .container
   display: flex
   justify-content: center
+  flex-direction: column
+  align-items: center
   & a
     width: 300px
     margin-top: 20px
@@ -42,6 +44,7 @@
   & #login
     display: flex
     flex-direction: column
+    align-items: center
   & .iti__selected-flag
     padding-left: 20px
   & .iti__flag
@@ -61,6 +64,10 @@
 
 .iti--separate-dial-code .iti__selected-flag
   background-color: unset
+
+.alert-error
+  margin-top: 15px
+  color: red
 
 *:focus
   outline: none

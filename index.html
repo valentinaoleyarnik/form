@@ -24,13 +24,14 @@
         <input type="submit" class="btn" value="Telegram" />
       </a>
     </form>
-    <div class="alert alert-info" style="display: none;"></div>
+    <div class="alert alert-info" style="display: none"></div>
+    <div class="alert alert-error" style="display: none"></div>
 </div>
 
 <script src="js/intlTelInput.min.js"></script>
 <script>
     const phoneInputField = document.querySelector("#phone");
-    var phoneInput = window.intlTelInput(phoneInputField, {
+    const phoneInput = window.intlTelInput(phoneInputField, {
         initialCountry: "auto",
         geoIpLookup: getIp,
         preferredCountries: ["pl", "de", "cz"],
@@ -48,10 +49,25 @@
         })
         .then((resp) => callback(resp.country));
     }
+
+    const info = document.querySelector(".alert-info");
+    const error = document.querySelector(".alert-error");
+
     function process(event) {
         event.preventDefault();
-        var phoneNumber = phoneInput.getNumber();
-        console.log(phoneInput);
+
+        const phoneNumber = phoneInput.getNumber();
+
+        info.style.display = "none";
+        error.style.display = "none";
+
+        if (phoneInput.isValidNumber()) {
+            info.style.display = "";
+            info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
+        } else {
+            error.style.display = "";
+            error.innerHTML = `Некорректный номер телефона.`;
+        }
     }
 </script>
 <!--<script src="https://customer.smartsender.eu/js/client/dl.js"></script>-->
