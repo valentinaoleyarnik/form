@@ -50,7 +50,6 @@
     }
 </script>
 <script>
-    var phoneNumber
     const phoneInputField = document.querySelector("#phone");
     const phoneInput = window.intlTelInput(phoneInputField, {
         initialCountry: "auto",
@@ -76,11 +75,12 @@
     function process(event) {
         event.preventDefault();
 
-        phoneNumber = phoneInput.getNumber();
+        //phoneNumber = phoneInput.getNumber();
 
         error.style.display = "none";
 
         if (phoneInput.isValidNumber()) {
+            ssContext.variables.phone = phoneInput.getNumber();
             document.getElementsByClassName('ss-btn')[0].click();
         } else {
             error.style.display = "";
@@ -107,7 +107,7 @@
             utm_medium: getUrlParam('utm_medium'), // получит параметр "utm_medium" из ссылки
             utm_campaign: getUrlParam('utm_campaign'), // получит параметр "utm_campaign" из ссылки
             utm_content: getUrlParam('utm_content'), // получит параметр "utm_content" из ссылки
-            phone: phoneNumber // получить телефон из формы
+            phone: "" // получить телефон из формы
         }
     };
     //console.log(ssContext);
