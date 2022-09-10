@@ -106,7 +106,7 @@
     function processPopup(event) {
         event.preventDefault();
 
-        if (phoneInput.isValidNumber()) {
+        if (phoneInputPopup.isValidNumber()) {
             ssContext.variables.phone = phoneInput.getNumber();
             document.getElementsByClassName('ss-btn')[0].click();
         } else {
